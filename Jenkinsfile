@@ -17,14 +17,14 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/pratikboh/dotnet-monitoring.git'
             }
         }
-        stage("Sonarqube Analysis "){
-            steps{
-                withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=.net-app \
-                    -Dsonar.projectKey=.net-app '''
-                }
-            }
-        }
+        #stage("Sonarqube Analysis "){
+        #    steps{
+        #        withSonarQubeEnv('sonar-server') {
+        #            sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=.net-app \
+        #           -Dsonar.projectKey=.net-app '''
+        #        }
+        #    }
+        #}
         stage("quality gate"){
            steps {
                 script {
